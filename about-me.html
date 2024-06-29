@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #about-me{
+            margin-top: 100px;
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            /* justify-content: space-between; */
+        }
+        .photo-part{
+            width: 40%;
+            border: 5px solid black;
+            background-color: black;
+        }
+        .photo-part img{
+            width: 100%;
+            height: 600px;
+        }
+        .message-part{
+            background: #000;
+            width: 60%;
+            border: 5px solid black;
+        }
+        #dark{
+    align-items: end;
+        }
+/* main-content */
+#main-content{
+   padding: 30px;
+}
+#main-content h1{
+    display: flex;
+    margin-bottom: 60px;
+    border-left: 10px solid orange;
+    padding-left: 20px;
+    font-family: sans-serif;
+    font-weight: 900;
+    font-size: 3rem;
+    color: white;
+}
+#main-content h3{
+    color: white;
+}
+#message{
+    font-family: sans-serif;
+    font-weight: 300;
+    margin-top: 50px;
+    color: white;
+}
+h3 strong{
+    
+    color: orange;
+    
+}
+/* skill part */
+#skill{
+    margin: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+#first-row{
+    background:black;
+    width: 40%;
+    font-family: sans-serif;
+    font-weight: 800;
+    color: grey;
+    color: white;
+}
+#second-row{
+    background-color: black;
+    width: 40%;
+    font-family: sans-serif;
+    font-weight: 800;
+    color: grey;
+    color: white;
+}
+
+.para {
+position: relative;
+margin: 0;
+padding-bottom: 15px;
+padding-top: 5px;
+}
+
+.para::after {
+content: "";
+position: absolute;
+bottom: 0;
+margin: 0;
+left: 0;
+width: 50%;
+height: 2px;
+background-color: lightslategray;
+}
+.button{
+display: flex;
+}
+.cv{
+background-color: orange;
+height: 40px;
+margin: 20px;
+border-radius: 10px;
+}
+
+
+
+
+    </style>
+</head>
+<body>
+      <!-- about me page -->
+      <div id="about-me">
+            <div class="photo-part">
+                <img src="./image/cartoon-man-transparent-13.png" alt="">
+            </div>
+        <div class="message-part">
+                <div id="main-content">
+                    <main class="main">
+                        <h1>About me</h1>
+                    </main>
+                    <div>
+                        <h3>i'm Yonas Teshome and <strong>Software engineer</strong></h3>
+                    </div>
+                    <div id="message">
+                        <p>
+        
+                            "Hello, I'm Yonas Teshome, an experienced software engineer, web developer, and computational programmer. I excel at solving complex problems and creating user-friendly applications. With a diverse background, I've worked on various projects using different programming languages, frameworks, and tools. My focus is on delivering high-quality code with attention to detail. Equipped with a strong educational foundation and hands-on experience, I bring impactful ideas to life. I continuously expand my skill set and keep up with industry trends. I'm eager to collaborate with like-minded individuals and organizations to drive technological advancements and create exceptional user experiences."</p>
+                    </div>
+                </div>
+                    <!-- the skill part -->
+
+            <div id="skill">
+                <div id="first-row">
+                    <p class="para"><strong>Birthday :</strong>2003</p>
+                    <p class="para"><strong>Website :</strong></p>
+                    <p class="para"><strong>Degree :</strong>Software Engineering</p>
+                    <p class="para"><strong>City :</strong>Adama</p>
+                    <div class="button">
+                        <button class="cv">Download CV</button>
+                        <button class="cv">Hire Me</button>
+                    </div>
+                </div>
+                <div id="second-row">
+                    <p class="para"><strong>Age :</strong>21</p>
+                    <p class="para"><strong>Email :</strong>yoyoni826@gmail.com</p>
+                    <p class="para"><strong>Phone :</strong>0985813866</p>
+                    <p class="para"><strong>Freelance :</strong>availabel</p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>

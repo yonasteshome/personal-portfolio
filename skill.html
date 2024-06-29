@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #skill{
+            margin: 20px;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+        }
+        #first-row{
+            width: 30%;
+            font-family: sans-serif;
+            font-weight: 800;
+            color: grey;
+        }
+        #second-row{
+            width: 30%;
+            font-family: sans-serif;
+            font-weight: 800;
+            color: grey;
+        }
+        #third-row{
+            width: 50%;
+            font-family: sans-serif;
+            font-weight: 800;
+            color: grey;
+            
+            
+        }
+        .container {
+    width: 300px;
+    height: 20px;
+    background-color:darkgray;
+  }
+  .para strong{
+    font-family: sans-serif;
+    font-size: 1.1rem;
+    font-weight: 900;
+    color: black;
+  }
+  .red-progress {
+    height: 70%;
+    background-color: orange;
+  }
+  .percent{
+    display: flex;
+    flex-direction: row;
+    gap: 220px;
+    
+
+  }
+  .percent p{
+    margin: 0;
+    margin-top: 0;
+  }
+  .para {
+  position: relative;
+  margin: 0;
+  padding-bottom: 15px;
+  padding-top: 5px;
+}
+
+.para::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  left: 0;
+  width: 50%;
+  height: 2px;
+  background-color: gray;
+}
+.button{
+    display: flex;
+}
+ .cv{
+    background-color: orange;
+    height: 40px;
+    margin: 20px;
+    border-radius: 10px;
+ }
+    </style>
+</head>
+<body>
+    <div id="skill">
+        <div id="first-row">
+            <p class="para"><strong>Birthday :</strong>2003</p>
+            <p class="para"><strong>Website :</strong></p>
+            <p class="para"><strong>Degree :</strong>Software Engineering</p>
+            <p class="para"><strong>City :</strong>Adama</p>
+            <div class="button">
+                <button class="cv">Download CV</button>
+                <button class="cv">Hire me</button>
+            </div>
+        </div>
+        <div id="second-row">
+            <p class="para"><strong>Age :</strong>21</p>
+            <p class="para"><strong>Email :</strong>yoyoni826@gmail.com</p>
+            <p class="para"><strong>Phone :</strong>0985813866</p>
+            <p class="para"><strong>Freelance :</strong>availabel</p>
+        </div>
+        <div id="third-row">
+                <div class="percent">
+                    <p>HTML</p>
+                    <p id="HTML">95%</p>
+                </div>
+                <div class="container">
+                    <div class="red-progress" style="width: 95%; height: 100%;"></div>
+                </div>
+                <div class="percent">
+                    <p>CSS</p>
+                    <p class="CSS">75%</p>
+                </div>
+                <div class="container">
+                    <div class="red-progress" style="width: 75%; height: 100%;"></div>
+                </div>
+                <div class="percent">
+                    <p>Java Script</p>
+                    <p class="Java Script">65%</p>
+                </div>
+                <div class="container">
+                    <div class="red-progress" style="width: 65%; height: 100%;" ></div>
+                </div>
+                <div class="percent">
+                    <p>Bootsrap</p>
+                    <p class="Bootsrap">85%</p>
+                </div>
+                <div class="container">
+                    <div class="red-progress" style="width: 85%; height: 100%;"></div>
+                </div>
+        </div>
+    </div>
+</body>
+</html>

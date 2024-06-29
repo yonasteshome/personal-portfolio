@@ -1,0 +1,949 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap');
+/* blob */
+.blob{
+    width: 380px;
+    height: 380px;
+    background-image: url('./Screenshot\ 2024-05-30\ 235443.png');
+    background-size: cover;
+    -webkit-background-position: center;
+    background-position: center center;
+    margin-left: 70px;
+    margin-top: 100px;
+    box-shadow: 0 5px 5px 5px orange;
+    animation: animate 5s ease-in-out infinite;
+    transition: all 1s ease-in-out;
+}
+@media (max-width: 700px) {
+    .blob{
+        width: 300px;
+        height: 300px;
+        margin-top: 20px;
+    }
+  }
+  @media (max-width: 400px) {
+    .blob{
+        width: 250px;
+        height: 250px;
+        margin-top: 20px;
+    }
+  }
+
+@keyframes animate {
+    0%, 100%{
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+    50%{
+        border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    }
+}
+body{
+    margin: 0;
+    padding: 0;
+    box-shadow: 0;
+    background-color: black;
+}
+/* #nav-color{
+    position: fixed;
+} */
+#navbarNavDropdown{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+#navbarNavDropdown a{
+    margin-left: 30px;
+    margin-right: 20px;
+    font-size: 1.5rem;
+}
+.container-fluid{
+    display: flex;
+    justify-content: space-between;
+    color: white;
+}
+#container-fluid p{
+    color: white;
+}
+.container-fluid a:hover{
+    color:orange;
+}
+/* #nav-color h1{
+    position: fixed;
+} */
+#y{
+    font-size: 50px;
+    color: orange;
+}
+#o{
+    font-size: 30px;
+    color: orange;
+    
+}
+#n{
+    font-size: 40px;
+    color: white;
+}
+#a{
+    font-size: 25px;
+    color:white;
+}
+#s{
+    font-size: 30px;
+    color: white;
+}
+
+/* main part */
+.both-side{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 70%;
+    margin: 10px;
+    font-style:normal;
+}
+.left-side{
+    text-transform: capitalize;
+    margin-top: 150px;
+    margin-left: 30px;
+    color: white;
+    width: 55%;
+    height: 100%;
+}
+.links{
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+.right-side{
+    width: 40%;
+    height: 100%;
+    text-align: end;
+}
+.photo{
+    width: 100%;
+    border-radius: 25px;
+}
+.left-side strong{
+    text-transform: uppercase;
+    color:orange;
+    font-size: 2.9rem;
+    margin-top: 0;
+}
+.left-side h1,h2{
+    font-size: 3.7rem;
+    font-family:'Nunito', 'sans-serif';
+}
+#CV{
+    background-color: orange;
+    margin: 20px;
+    height: 40px;
+    padding-left: 0;
+    padding-right: 0;
+    border-radius: 20px;
+    align-items: center;
+    color: white;
+}
+#main-content{
+    padding: 20px;
+    padding-left: 30px;
+    width: 100%;
+    /* background-color: #F2F3FB; */
+    background-color:black;
+} 
+#main-content h1{
+    display: flex;
+    margin-bottom: 60px;
+    border-left: 10px solid orange;
+    padding-left: 20px;
+    font-family: sans-serif;
+    font-weight: 900;
+    font-size: 3rem;
+    color: white;
+}
+#main-content h3{
+    color: white;
+}
+#message{
+    font-family: sans-serif;
+    font-weight: 300;
+    margin-top: 50px;
+    color: white;
+}
+h3 strong{
+    color: orange;
+}
+/* skill part */
+#skill{
+    margin: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+#first-row{
+    width: 30%;
+    font-family: sans-serif;
+    font-weight: 800;
+    color: grey;
+    color: white;
+}
+#second-row{
+    width: 30%;
+    font-family: sans-serif;
+    font-weight: 800;
+    color: grey;
+    color: white;
+}
+#third-row{
+    width: 50%;
+    font-family: sans-serif;
+    font-weight: 800;
+    color: grey;
+    color: white;
+    
+    
+}
+.container {
+width: 300px;
+height: 20px;
+background-color:darkgray;
+margin-left: 0;
+}
+.para strong{
+font-family: sans-serif;
+font-size: 1.1rem;
+font-weight: 900;
+color: white;
+}
+.red-progress {
+height: 70%;
+background-color: orange;
+}
+.percent{
+display: flex;
+flex-direction: row;
+gap: 200px;
+
+
+}
+.percent p{
+margin: 0;
+margin-top: 0;
+}
+.para {
+position: relative;
+margin: 0;
+padding-bottom: 15px;
+padding-top: 5px;
+}
+
+.para::after {
+content: "";
+position: absolute;
+bottom: 0;
+margin: 0;
+left: 0;
+width: 50%;
+height: 2px;
+background-color: lightslategray;
+}
+.button{
+display: flex;
+}
+.cv{
+background-color: orange;
+height: 40px;
+margin: 20px;
+border-radius: 10px;
+}
+#button{
+    display: none;
+}
+/* ############################## about me page  ################################## */
+#about-me{
+    margin-top: 250px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    /* justify-content: space-between; */
+}
+.photo-part{
+    width: 40%;
+}
+.photo-part img{
+    /* width: 100%; */
+    height: 600px;
+}
+.message-part{
+    width: 60%;
+}
+#dark{
+align-items: end;
+}
+/* main-content */
+#main-content{
+padding: 30px;
+}
+#main-content h1{
+display: flex;
+margin-bottom: 60px;
+border-left: 10px solid orange;
+padding-left: 20px;
+font-family: sans-serif;
+font-weight: 900;
+font-size: 3rem;
+color: white;
+}
+#main-content h3{
+color: white;
+}
+#message{
+font-family: sans-serif;
+font-weight: 300;
+margin-top: 50px;
+color: white;
+}
+h3 strong{
+
+color: orange;
+
+}
+/* skill part */
+#skill{
+margin: 20px;
+width: 100%;
+display: flex;
+flex-direction: row;
+gap: 10px;
+}
+#first-row{
+background:black;
+width: 40%;
+font-family: sans-serif;
+font-weight: 800;
+color: grey;
+color: white;
+}
+#second-row{
+width: 40%;
+font-family: sans-serif;
+font-weight: 800;
+color: grey;
+color: white;
+}
+
+.para {
+position: relative;
+margin: 0;
+padding-bottom: 15px;
+padding-top: 5px;
+}
+
+.para::after {
+content: "";
+position: absolute;
+bottom: 0;
+margin: 0;
+left: 0;
+width: 50%;
+height: 2px;
+background-color: lightslategray;
+}
+.button{
+display: flex;
+}
+.cv{
+background-color: orange;
+height: 40px;
+margin: 20px;
+border-radius: 10px;
+}
+
+/* ########################## skill level part ######################### */
+
+.range-container {
+    width: 350px;
+    height:20px;
+    background-color: white;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+
+  .range-fill {
+    width: 0%;
+    height: 100%;
+    background-color: orange;
+    position: absolute;
+    animation-fill-mode: forwards;
+  }
+
+  .range-fill-1 {
+    animation: fillRange1 1s linear forwards;
+  }
+
+  .range-fill-2 {
+    animation: fillRange2 1s linear forwards;
+  }
+
+  .range-fill-3 {
+    animation: fillRange3 5s linear forwards;
+  }
+
+  .range-fill-4 {
+    animation: fillRange4 1s linear forwards;
+  }
+
+  @keyframes fillRange1 {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 95%;
+    }
+  }
+
+  @keyframes fillRange2 {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 50%;
+    }
+  }
+
+  @keyframes fillRange3 {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 70%;
+    }
+  }
+
+  @keyframes fillRange4 {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 80%;
+    }
+  }
+  .hello{
+      display: flex;
+      flex-direction: column;
+  }
+ .show{
+      display: flex;
+  }
+  .hello p{
+      margin:0;
+  }
+  .hello p strong{
+      
+  }
+  #both-skill{
+    margin-bottom: 100px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      background-color: black;
+  }
+  #both-skill-left{
+      width: 40%;
+  }
+  #both-skill-right{
+      width: 40%;
+  }
+  .show ,h1{
+      color: white;
+  }
+  #skill-h1{
+    margin-top: 20rem;
+    
+      font-size: 4rem;
+      font-family: sans-serif;
+      text-align: center;
+  }
+  #both-skill h1{
+      font-size: 3rem;
+      color: white;
+      font-weight: 900;
+  }
+  /* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$ contact me $$$$$$$$$$$$$$$$$$$$$$$$$$$$ */
+  .contact-me{
+    display: flex;
+    flex-direction: column;
+}
+.contact-info {
+    display: flex;
+    
+}
+.contact-info h1{
+    font-size: 4rem;
+    font-family: sans-serif;
+    font-weight: 900;
+    border-left: 20px solid orange;
+    color: white;
+}
+.paragraph{
+    flex-direction: column;
+    text-align: center;
+    font-size: 3.0rem;
+    color: orange;
+    margin-top: 7%;
+}
+.check-email{
+    flex-direction: column;
+    text-align: center;
+    font-size: 3.0rem;
+    color: orange;
+    margin-top: 7%;
+}
+.check-email{
+    padding: 3%
+
+}
+.check-email p span {
+    color: white;
+    padding-top: 0;
+}
+.check-email p{
+    margin: 0;
+}
+.paragraph p span {
+    color: white;
+}
+.paragraph p{
+    margin: 0;
+}
+.location{
+    flex-direction: row;
+    width: 100%;
+    margin-top: 10%;
+}
+.each{
+    display: flex;
+    flex-direction: column;
+    width: 22%;
+    margin-left: 2%;
+    padding-bottom: 3%;
+    border: 5px solid gray;
+
+    color: white;
+    justify-content: center;
+    align-items: center;
+}
+.each svg{
+    color: orange;
+    margin: 20px;
+    /* margin-top: 30px; */
+    
+}
+.each p{
+    margin-bottom: 3px;
+    font-size: 1.5rem;
+}
+#cont-form-whole{
+    width: 100%;
+}
+.con-from{
+display: flex;
+flex-direction: row;
+width: 80%;
+height: 70px;
+margin-left: 9%;
+gap: 3%;
+}
+.name{
+width: 50%;
+}
+.email{
+width: 50%;
+
+}
+#name{
+color: white;
+width: 100%;
+height: 60px;
+border-radius: 20px;
+padding: 25px;
+background-color: rgb(54, 53, 53);
+font-size: 1.3rem;
+}
+#email{
+color: white;
+width: 100%;
+height: 60px;
+border-radius: 20px;
+padding: 25px;
+ background-color: rgb(54, 53, 53);
+ font-size: 1.3rem;
+}
+#subject{
+color: white;
+font-size: 1.3rem;
+width: 80%;
+height: 60px;
+border-radius: 20px;
+padding: 25px;
+margin-left: 9%;
+margin-top: 20px;
+margin-bottom: 20px;
+background-color: rgb(54, 53, 53);
+
+
+}
+::placeholder{
+color: white;
+font-size: 1.3rem;
+}
+#idea{
+color: white;
+width: 80%;
+height: 250px;
+border-radius: 20px;
+padding: 25px;
+margin-left: 9%;
+background-color: rgb(54, 53, 53);
+
+}
+#send-message{
+width: 16%;
+height: 55px;
+background-color: orange;
+color: white;
+margin-left: 10%;
+margin-top: 10px;
+border-radius: 20px;
+font-size: 1.4rem;
+margin-bottom: 20%;
+
+}
+textarea{
+    text-transform: capitalize;
+    font-size: 1.3rem;
+}
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% responsiveness%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+@media (max-width: 700px) and (min-width:290px){
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap');
+
+    .both-side{
+        display: flex;
+        margin-top: 70px;
+        flex-direction: column;
+        /* width: 110%; */
+    }
+    .left-side{
+        text-transform: capitalize;
+        margin-top: 100px;
+        margin-left: 5px;
+        color: white;
+        width: 100%;
+    }
+    .links{
+        width: 30%;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+    }
+    .links svg{
+        font-size: 2.0rem;
+    }
+    /* photo part */
+    .right-side{
+        order: -1;
+        width: 100%;
+        height: 100%;
+        text-align: end;
+    }
+    .photo{
+        width: 100%;
+        border-radius: 25px;
+    }
+    /* message of the first  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+    .left-side strong{
+        text-transform: uppercase;
+        color:orange;
+        font-size: 1.2rem;
+        margin-top: 0;
+        width: 95%;
+    }
+    .left-side h1,h2{
+        font-size: 1.3rem;
+        font-family:'Nunito', 'sans-serif';
+    }
+    #CV{
+        background-color: orange;
+        margin: 20px;
+        height: 40px;
+        padding-left: 0;
+        padding-right: 0;
+        border-radius: 20px;
+        align-items: center;
+        color: white;
+    }
+    .blob{
+        size:220px ;
+        padding: 0;
+        margin-left: 5%;
+    }
+    #CV{
+        margin-left: 1%;
+        margin-bottom: 0;
+        height: 40px;
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 10px;
+    }
+    /* about me @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+    #about-me{
+        margin-top: 250px;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        /* justify-content: space-between; */
+    }
+    /* Photo part @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+    .photo-part{
+       display: none;
+    }
+    .photo-part img{
+        width: 100%;
+        height: 600px;
+    }
+    /* message part @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+    .message-part{
+        background: #000;
+        width: 100%;
+        border: 5px solid black;
+    }
+    #dark{
+    align-items: end;
+    }
+    /* main-content @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+    #main-content{
+    padding: 10px;
+    }
+    #main-content h1{
+    display: flex;
+    margin-bottom: 60px;
+    border-left: 5px solid orange;
+    padding-left: 20px;
+    font-family: sans-serif;
+    font-weight: 900;
+    font-size: 1.5rem;
+    color: white;
+    }
+    #main-content h3{
+    color: white;
+    }
+    #message{
+    font-family: sans-serif;
+    font-weight: 300;
+    margin-top: 50px;
+    color: white;
+    }
+    h3 strong{
+    
+    color: orange;
+    
+    }
+    /* skill part @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+      #skill{
+        margin: 10px;
+        width: 100%;
+        display: flex;
+        flex-direction:column;
+        }
+        #first-row{
+        background:black;
+        width: 100%;
+        font-family: sans-serif;
+        font-weight: 800;
+        color: grey;
+        color: white;
+        }
+        #second-row{
+            order: -1;
+        background-color: black;
+        width: 100%;
+        font-family: sans-serif;
+        font-weight: 800;
+        color: grey;
+        color: white;
+        }
+        #both-skill{
+            display: flex;
+            flex-direction: column;
+        }
+        #both-skill-left{
+            width: 95%;
+            margin-left: 10px;
+
+        }
+        #both-skill-right{
+            width: 95%;
+            margin-top: 50px;
+            margin-left: 10px;
+        }
+        .show ,h1{
+            color: white;
+        }
+        #skill-h1{
+          margin-top: 10rem;
+          
+            font-size: 2rem;
+            font-family: sans-serif;
+            text-align: center;
+        }
+        #both-skill h1{
+            font-size: 1.5rem;
+            color: white;
+            font-weight: 900;
+        }
+        .range-container {
+            width: 100%;
+            height: 15px;
+            background-color: white;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 10px;
+          }
+        
+          .range-fill {
+            width: 0%;
+            height: 100%;
+            background-color: orange;
+            position: absolute;
+            animation-fill-mode: forwards;
+          }
+            #nav-color h1{
+                margin-top: 35px;
+                position: absolute;
+            }
+            #navbarNavDropdown{
+                display: none;
+              }
+            #y{
+                font-size: 50px;
+                color: orange;
+            }
+            #o{
+                font-size: 30px;
+                color: orange;
+                
+            }
+            #n{
+                font-size: 40px;
+                color: white;
+            }
+            #a{
+                font-size: 25px;
+                color:white;
+            }
+            #s{
+                font-size: 30px;
+                color: white;
+            }
+            #button{
+                display: none;
+            }
+            /* ########################################### contact me ############################################################3 */
+            
+           
+            .contact-info h1{
+                font-size: 2rem;
+                font-weight: 900;
+                border-left: 10px solid orange;
+                color: white;
+            }
+            .paragraph{
+                font-size: 1.5rem;
+                color: orange;
+            }
+            .check-email{
+                font-size: 1.50rem;
+            }
+            
+            .location{
+                flex-direction: column;
+                width: 100%;
+                margin-top: 10%;
+            }
+            .each{
+                display: flex;
+                flex-direction: column;
+                width: 95%;
+                border: 2px solid gray;
+            }
+            .each p{
+                margin-bottom: 3px;
+                font-size: 1.1rem;
+            }
+            #cont-form-whole{
+                width: 100%;
+            }
+            .con-from{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 110px;
+            margin-left: 3%;
+            gap: 3%;
+            }
+            .name{
+            width: 95%;
+            }
+            .email{
+            width: 95%;
+            }
+            #name{
+            color: white;
+            width: 100%;
+            height: 60px;
+            border-radius: 20px;
+            padding: 15px;
+            background-color: rgb(54, 53, 53);
+            font-size: 1.0rem;
+            }
+            #email{
+            border-radius: 20px;
+            padding: 15px;
+             font-size: 1.0rem;
+            }
+            #subject{
+            font-size: 1.0rem;
+            width: 95%;
+            height: 60px;
+            border-radius: 20px;
+            padding: 15px;
+            margin-left: 3%;
+            }
+            ::placeholder{
+            color: white;
+            font-size: 1.0rem;
+            }
+            #idea{
+            padding: 15px;
+            margin-left: 3%;
+            width: 95%;
+            }
+            #send-message{
+            width: 46%;
+            height: 45px;
+            background-color: orange;
+            color: white;
+            margin-left: 3%;
+            margin-top: 10px;
+            border-radius: 20px;
+            font-size: 1.0rem;
+            margin-bottom: 20%;
+            
+            }
+            textarea{
+                text-transform: capitalize;
+                font-size: 1.0rem;
+            }
+        }

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body{
+        background: #000;
+    }
+    .range-container {
+      width: 350px;
+      height:15px;
+      background-color: white;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+
+    .range-fill {
+      width: 0%;
+      height: 100%;
+      background-color: orange;
+      position: absolute;
+      animation-fill-mode: forwards;
+    }
+
+    .range-fill-1 {
+      animation: fillRange1 1s linear forwards;
+    }
+
+    .range-fill-2 {
+      animation: fillRange2 1s linear forwards;
+    }
+
+    .range-fill-3 {
+      animation: fillRange3 5s linear forwards;
+    }
+
+    .range-fill-4 {
+      animation: fillRange4 1s linear forwards;
+    }
+
+    @keyframes fillRange1 {
+      0% {
+        width: 0%;
+      }
+      100% {
+        width: 95%;
+      }
+    }
+
+    @keyframes fillRange2 {
+      0% {
+        width: 0%;
+      }
+      100% {
+        width: 50%;
+      }
+    }
+
+    @keyframes fillRange3 {
+      0% {
+        width: 0%;
+      }
+      100% {
+        width: 70%;
+      }
+    }
+
+    @keyframes fillRange4 {
+      0% {
+        width: 0%;
+      }
+      100% {
+        width: 80%;
+      }
+    }
+    .hello{
+        display: flex;
+        flex-direction: column;
+    }
+   .show{
+        display: flex;
+    }
+    .hello p{
+        margin:0;
+    }
+    .hello p strong{
+        margin-left: 300px;
+    }
+    #both-skill{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        background-color: black;
+    }
+    #both-skill-left{
+        width: 40%;
+    }
+    #both-skill-right{
+        width: 40%;
+        margin-top: 50px;
+    }
+    .show ,h1{
+        color: white;
+    }
+    #skill-h1{
+      margin-top: 5rem;
+        font-size: 4rem;
+        font-family: sans-serif;
+        text-align: center;
+    }
+    #both-skill h1{
+        font-size: 3rem;
+        color: white;
+        font-weight: 900;
+    }
+/* Responsive styles */
+@media (max-width: 900px) {
+          #both-skill {
+            display: flex;
+            flex-direction: column;
+          }
+          #both-skill-right{
+        width: 100%;
+        margin-left: 80px;
+    }
+    #both-skill-left{
+        width: 40%;
+        margin-left: 80px;
+    }
+        }
+      
+  </style>
+</head>
+<body>
+<!-- ###################################  skill part  ################################################### -->
+<h1 id="skill-h1" >skill</h1>
+    <div id="both-skill">
+    <!-- ################  left side ############### -->
+        <div id="both-skill-left">
+             <h1>Frontend</h1> 
+            <div class="hello">
+                <div class="show">
+                    <p>HTML</p>
+                    <p><strong>95%</strong></p>
+                </div>
+                <div class="range-container">
+                    <div class="range-fill range-fill-1"></div>
+                  </div>
+            </div>
+            <div class="hello">
+                <div class="show">
+                    <p>CSS</p>
+                    <p><strong>50%</strong></p>
+                </div>
+                <div class="range-container">
+                    <div class="range-fill range-fill-2"></div>
+                  </div>
+            </div>
+            <div class="hello">
+                <div class="show">
+                    <p>Java Script</p>
+                    <p><strong>70%</strong></p>
+                </div>
+                <div class="range-container">
+                    <div class="range-fill range-fill-3"></div>
+                  </div>
+            </div>
+            <div class="hello">
+                <div class="show">
+                    <p>Bootstrap</p>
+                    <p><strong>80%</strong></p>
+                </div>
+                <div class="range-container">
+                    <div class="range-fill range-fill-4"></div>
+                  </div>
+            </div>
+        </div>
+        <!-- ############### right side   ##################### -->
+        <div id="both-skill-right">
+             <h1>Backend </h1>
+            <div class="hello">
+                <div class="show">
+                    <p>Node.js</p>
+                    <p><strong>95%</strong></p>
+                </div>
+                <div class="range-container">
+                    <div class="range-fill range-fill-1"></div>
+                  </div>
+            </div>
+            <div class="hello">
+                <div class="show">
+                    <p>Express.js</p>
+                    <p><strong>50%</strong></p>
+                </div>
+                <div class="range-container">
+                    <div class="range-fill range-fill-2"></div>
+                  </div>
+            </div>
+            <div class="hello">
+                <div class="show">
+                    <p>PHP</p>
+                    <p><strong>70%</strong></p>
+                </div>
+                <div class="range-container">
+                    <div class="range-fill range-fill-3"></div>
+                  </div>
+            </div>
+            <div class="hello">
+                <div class="show">
+                    <p>Java</p>
+                    <p><strong>80%</strong></p>
+                </div>
+                <div class="range-container">
+                    <div class="range-fill range-fill-4"></div>
+                  </div>
+            </div>
+        </div>
+    </div>
+    
+    
+
+</body>
+</html>
+        
+   
