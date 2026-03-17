@@ -5,18 +5,18 @@ import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import About from '../components/About';
 import Skills from '../components/Skills';
-import Experience from '../components/Experience'; // 1. Import Experience
+import Projects from '../components/Projects';
+import Experience from '../components/Experience'; // Import remains here
 
 export default function Home() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isInteractive, setIsInteractive] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [mounted, setMounted] = useState(false); // 2. Critical for Hydration fix
+  const [mounted, setMounted] = useState(false); 
   
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   
-  // Handle initial theme load and mounting
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme === "dark") {
@@ -27,10 +27,9 @@ export default function Home() {
       const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
       setIsDarkMode(prefersDark);
     }
-    setMounted(true); // Component is now safe to render theme-specific UI
+    setMounted(true);
   }, []);
 
-  // Persist theme choice
   useEffect(() => {
     if (mounted) {
       localStorage.setItem("theme", isDarkMode ? "dark" : "light");
@@ -64,13 +63,11 @@ export default function Home() {
     };
   }, [mouseX, mouseY]);
 
-  // Prevent render until mounted to ensure client matches server exactly
   if (!mounted) return null;
 
   return (
     <main className={`relative min-h-screen w-full ${theme.bg} transition-colors duration-700 overflow-x-hidden overflow-y-auto flex flex-col font-sans cursor-none select-none`}>
       
-      {/* Loading Animation */}
       <AnimatePresence>
         {isLoading && (
           <div className="fixed inset-0 z-[10000] pointer-events-none">
@@ -83,7 +80,6 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      {/* Custom Cursor */}
       <motion.div
         className="fixed top-0 left-0 pointer-events-none z-[9999] flex items-center justify-center rounded-full mix-blend-difference bg-white w-8 h-8"
         style={{ x: cursorX, y: cursorY, translateX: "-50%", translateY: "-50%" }}
@@ -97,6 +93,7 @@ export default function Home() {
         setIsInteractive={setIsInteractive} 
       />
 
+      {/* 1. HERO */}
       <div className="h-[calc(100vh-112px)] w-full flex-shrink-0">
         <Hero 
           theme={theme} 
@@ -108,21 +105,17 @@ export default function Home() {
         />
       </div>
 
-      <About 
-        theme={theme} 
-        isDarkMode={isDarkMode} 
-      />
+      {/* 2. ABOUT */}
+      <About theme={theme} isDarkMode={isDarkMode} />
 
-      <Skills 
-        theme={theme} 
-        isDarkMode={isDarkMode} 
-      />
+      {/* 3. SKILLS */}
+      <Skills theme={theme} isDarkMode={isDarkMode} />
 
-      {/* 3. Experience Section */}
-      <Experience 
-        theme={theme} 
-        isDarkMode={isDarkMode} 
-      />
+      {/* 4. PROJECTS */}
+      <Projects theme={theme} isDarkMode={isDarkMode} />
+
+      {/* 5. EXPERIENCE - Integrated here */}
+      <Experience theme={theme} isDarkMode={isDarkMode} />
 
     </main>
   );
