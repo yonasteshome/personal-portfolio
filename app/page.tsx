@@ -7,8 +7,8 @@ import About from '../components/About';
 import Skills from '../components/Skills';
 import Projects from '../components/Projects';
 import Experience from '../components/Experience';
-import ValueProp from '../components/ValueProp'; // 1. Import the new component
-import Footer from '../components/Footer'; // 2. Import Footer
+import ValueProp from '../components/ValueProp'; 
+import Footer from '../components/Footer';
 
 export default function Home() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -68,8 +68,12 @@ export default function Home() {
   if (!mounted) return null;
 
   return (
-    <main className={`relative min-h-screen w-full ${theme.bg} transition-colors duration-700 overflow-x-hidden overflow-y-auto flex flex-col font-sans cursor-none select-none`}>
+    <main 
+      className={`relative min-h-screen w-full ${theme.bg} transition-colors duration-700 
+      overflow-x-clip overflow-y-auto no-scrollbar flex flex-col font-sans cursor-none select-none`}
+    >
       
+      {/* 1. LOADING SCREEN */}
       <AnimatePresence>
         {isLoading && (
           <div className="fixed inset-0 z-[10000] pointer-events-none">
@@ -82,12 +86,14 @@ export default function Home() {
         )}
       </AnimatePresence>
 
+      {/* 2. CUSTOM CURSOR */}
       <motion.div
         className="fixed top-0 left-0 pointer-events-none z-[9999] flex items-center justify-center rounded-full mix-blend-difference bg-white w-8 h-8"
         style={{ x: cursorX, y: cursorY, translateX: "-50%", translateY: "-50%" }}
         animate={{ scale: isInteractive ? 2.5 : 1 }}
       />
 
+      {/* 3. NAVIGATION */}
       <Navbar 
         theme={theme} 
         isDarkMode={isDarkMode} 
@@ -95,8 +101,8 @@ export default function Home() {
         setIsInteractive={setIsInteractive} 
       />
 
-      {/* 1. HERO */}
-      <div className="h-[calc(100vh-112px)] w-full flex-shrink-0">
+      {/* 4. HERO SECTION - Wrapped to contain overflow */}
+      <div className="h-[calc(100vh-112px)] w-full flex-shrink-0 overflow-hidden">
         <Hero 
           theme={theme} 
           isDarkMode={isDarkMode} 
@@ -107,24 +113,22 @@ export default function Home() {
         />
       </div>
 
-      {/* 2. ABOUT */}
+      {/* 5. ABOUT SECTION */}
       <About theme={theme} isDarkMode={isDarkMode} />
 
-      {/* 3. SKILLS */}
+      {/* 6. SKILLS SECTION */}
       <Skills theme={theme} isDarkMode={isDarkMode} />
 
-      
-
-      {/* 5. PROJECTS */}
+      {/* 7. PROJECTS SECTION */}
       <Projects theme={theme} isDarkMode={isDarkMode} />
 
-      {/* 6. EXPERIENCE */}
+      {/* 8. EXPERIENCE SECTION */}
       <Experience theme={theme} isDarkMode={isDarkMode} />
 
-      {/* 4. VALUE PROPOSITION - Added here as a bridge */}
+      {/* 9. VALUE PROPOSITION */}
       <ValueProp theme={theme} isDarkMode={isDarkMode} />
 
-      {/* 7. FOOTER */}
+      {/* 10. FOOTER */}
       <Footer theme={theme} isDarkMode={isDarkMode} />
 
     </main>
