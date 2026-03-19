@@ -6,7 +6,9 @@ import Hero from '../components/Hero';
 import About from '../components/About';
 import Skills from '../components/Skills';
 import Projects from '../components/Projects';
-import Experience from '../components/Experience'; // Import remains here
+import Experience from '../components/Experience';
+import ValueProp from '../components/ValueProp'; // 1. Import the new component
+import Footer from '../components/Footer'; // 2. Import Footer
 
 export default function Home() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -111,11 +113,19 @@ export default function Home() {
       {/* 3. SKILLS */}
       <Skills theme={theme} isDarkMode={isDarkMode} />
 
-      {/* 4. PROJECTS */}
+      
+
+      {/* 5. PROJECTS */}
       <Projects theme={theme} isDarkMode={isDarkMode} />
 
-      {/* 5. EXPERIENCE - Integrated here */}
+      {/* 6. EXPERIENCE */}
       <Experience theme={theme} isDarkMode={isDarkMode} />
+
+      {/* 4. VALUE PROPOSITION - Added here as a bridge */}
+      <ValueProp theme={theme} isDarkMode={isDarkMode} />
+
+      {/* 7. FOOTER */}
+      <Footer theme={theme} isDarkMode={isDarkMode} />
 
     </main>
   );
