@@ -12,7 +12,8 @@ import {
   Activity,
   Globe2,
   Lock,
-  Cpu
+  Cpu,
+  ExternalLink
 } from "lucide-react";
 
 export default function Footer({ theme, isDarkMode }: { theme: any; isDarkMode: boolean }) {
@@ -22,9 +23,9 @@ export default function Footer({ theme, isDarkMode }: { theme: any; isDarkMode: 
   };
 
   const socials = [
-    { name: "GITHUB", icon: <Github size={20} />, link: "https://github.com/yourusername" },
-    { name: "LINKEDIN", icon: <Linkedin size={20} />, link: "https://linkedin.com/in/yourusername" },
-    { name: "TWITTER", icon: <Twitter size={20} />, link: "https://twitter.com/yourusername" },
+    { name: "GITHUB", icon: <Github size={20} />, link: "https://github.com/yourusername", color: "hover:text-white" },
+    { name: "LINKEDIN", icon: <Linkedin size={20} />, link: "https://linkedin.com/in/yourusername", color: "hover:text-[#0077b5]" },
+    { name: "TWITTER", icon: <Twitter size={20} />, link: "https://twitter.com/yourusername", color: "hover:text-[#1da1f2]" },
   ];
 
   return (
@@ -38,7 +39,7 @@ export default function Footer({ theme, isDarkMode }: { theme: any; isDarkMode: 
         {/* THREE COLUMN GRID */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 lg:gap-24 mb-24">
           
-          {/* COLUMN 1: SOCIAL_CONNECT (LEFT) */}
+          {/* COLUMN 1: SOCIAL_UPLINK (LEFT) */}
           <div className="space-y-10 order-2 lg:order-1">
             <h4 className="font-mono text-[10px] font-black text-emerald-500 tracking-[0.6em] uppercase flex items-center gap-2">
               <Globe2 size={14} /> // SOCIAL_UPLINK
@@ -53,7 +54,7 @@ export default function Footer({ theme, isDarkMode }: { theme: any; isDarkMode: 
                     ${isDarkMode ? 'bg-white/5 border-white/5 hover:border-emerald-500/50' : 'bg-black/5 border-black/5 hover:border-emerald-500/30'}`}
                 >
                   <span className={`font-mono text-xs font-black tracking-widest ${theme.text}`}>{social.name}</span>
-                  <div className={`transition-colors ${theme.subtext} group-hover:text-emerald-500`}>
+                  <div className={`transition-colors ${theme.subtext} ${social.color}`}>
                     {social.icon}
                   </div>
                 </a>
@@ -72,8 +73,8 @@ export default function Footer({ theme, isDarkMode }: { theme: any; isDarkMode: 
               </h2>
             </div>
 
-            <div className="space-y-4 w-full">
-              <p className={`text-sm font-mono font-bold tracking-[0.2em] ${theme.subtext}`}>DIRECT_ENCRYPTION_CHANNEL</p>
+            <div className="space-y-4 w-full px-4">
+              <p className={`text-[10px] font-mono font-bold tracking-[0.4em] ${theme.subtext} uppercase`}>Direct_Communication_Line</p>
               <a 
                 href="mailto:hello@yonas.dev" 
                 className={`text-2xl md:text-3xl font-black tracking-tighter border-b-4 border-emerald-500/20 hover:border-emerald-500 transition-all pb-2 block ${theme.text}`}
@@ -90,21 +91,21 @@ export default function Footer({ theme, isDarkMode }: { theme: any; isDarkMode: 
             </h4>
             <div className={`p-8 rounded-[2.5rem] border-2 space-y-8 ${isDarkMode ? 'bg-zinc-900/40 border-white/5' : 'bg-white border-black/5'}`}>
               <div className="flex items-center justify-between">
-                <span className="font-mono text-[10px] font-bold text-zinc-500">AVAILABILITY</span>
+                <span className="font-mono text-[10px] font-bold text-zinc-500 uppercase tracking-widest">Availability</span>
                 <div className="flex items-center gap-2 text-emerald-500 font-mono text-[10px] font-black">
                   <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                   OPEN_TO_WORK
                 </div>
               </div>
               <div className="flex items-center justify-between">
-                <span className="font-mono text-[10px] font-bold text-zinc-500">ENCRYPTION</span>
+                <span className="font-mono text-[10px] font-bold text-zinc-500 uppercase tracking-widest">Security</span>
                 <span className={`font-mono text-[10px] font-black ${theme.text} flex items-center gap-2`}>
                   <Lock size={12} className="text-emerald-500" /> AES_256
                 </span>
               </div>
               <div className="flex items-center justify-between pt-4 border-t border-white/5">
-                 <span className="font-mono text-[10px] font-bold text-zinc-500">LOCAL_TIME</span>
-                 <span className={`font-mono text-[10px] font-black ${theme.text}`}>ADDIS_ABABA // GMT+3</span>
+                 <span className="font-mono text-[10px] font-bold text-zinc-500 uppercase tracking-widest">Location</span>
+                 <span className={`font-mono text-[10px] font-black ${theme.text}`}>ADDIS_ABABA // ET</span>
               </div>
             </div>
           </div>
@@ -113,7 +114,7 @@ export default function Footer({ theme, isDarkMode }: { theme: any; isDarkMode: 
 
         {/* BOTTOM TERMINAL BAR */}
         <div className={`pt-10 border-t-2 flex flex-col md:flex-row justify-between items-center gap-8 ${isDarkMode ? 'border-white/5' : 'border-black/5'}`}>
-          <div className="flex items-center gap-8 font-mono text-[10px] font-black text-zinc-600 uppercase tracking-[0.6em]">
+          <div className="flex items-center gap-8 font-mono text-[10px] font-black text-zinc-600 uppercase tracking-[0.5em]">
             <span className="flex items-center gap-2">
                <Activity size={14} className="text-emerald-500" /> 
                V5.4.2_STABLE
