@@ -16,7 +16,7 @@ const Navbar = ({ theme, isDarkMode, setIsDarkMode, setIsInteractive }: NavbarPr
   const activeTextColor = isDarkMode ? "#f1f5f9" : "#0f172a"; 
 
   return (
-    <nav className={`flex items-center justify-between px-10 md:px-20 h-28 w-full sticky top-0 z-50 border-b backdrop-blur-md transition-colors duration-500 ${theme.nav}`}>
+    <nav className={`fixed top-0 left-0 flex items-center justify-between px-10 md:px-20 h-28 w-full z-50 border-b backdrop-blur-md transition-colors duration-500 ${theme.nav}`}>
       
       {/* Brand / Logo Section */}
       <div className="flex items-center gap-3">

@@ -1,4 +1,4 @@
-  "use client";
+"use client";
   import React from 'react';
   import { motion, MotionValue } from 'framer-motion';
   import { Globe } from 'lucide-react';
@@ -19,12 +19,14 @@
     };
 
     return (
-      // FIX: Removed flex-1, ensured height is full
-      <div className="relative h-full flex flex-col items-center justify-center px-4 w-full">
+      /* pt-28 added to push content below the fixed navbar */
+      <div className="relative h-full flex flex-col items-center justify-center px-4 w-full pt-38">
+        
+        {/* Welcome Text Section */}
         <div className="flex items-center gap-4 mb-[-5px] relative z-20">
           <Globe size={24} className="animate-pulse text-[#10b981]" />
           <p className={`text-xl md:text-3xl font-bold ${theme.text} tracking-tight ${theme.codeFont}`}>
-            // Welcome. I'm Yonas, a freelance
+            // Welcome. I'm Yonas, a freelancer
           </p>
         </div>
 
@@ -33,9 +35,6 @@
           onMouseEnter={() => setIsInteractive(true)}
           onMouseLeave={() => setIsInteractive(false)}
         >
-          {/* ... All background and foreground text remains EXACTLY the same ... */}
-          {/* ... Image container remains EXACTLY the same ... */}
-          
           {/* BACKGROUND TEXT */}
           <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none select-none z-10">
             <motion.h1 
