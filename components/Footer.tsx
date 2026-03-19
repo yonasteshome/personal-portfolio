@@ -5,15 +5,15 @@ import { motion } from "framer-motion";
 import { 
   Github, 
   Linkedin, 
-  Twitter, 
-  Mail, 
   ArrowUp, 
   Terminal,
   Activity,
   Globe2,
   Lock,
   Cpu,
-  ExternalLink
+  Phone,
+  Mail,
+  MapPin
 } from "lucide-react";
 
 export default function Footer({ theme, isDarkMode }: { theme: any; isDarkMode: boolean }) {
@@ -23,9 +23,9 @@ export default function Footer({ theme, isDarkMode }: { theme: any; isDarkMode: 
   };
 
   const socials = [
-    { name: "GITHUB", icon: <Github size={20} />, link: "https://github.com/yourusername", color: "hover:text-white" },
-    { name: "LINKEDIN", icon: <Linkedin size={20} />, link: "https://linkedin.com/in/yourusername", color: "hover:text-[#0077b5]" },
-    { name: "TWITTER", icon: <Twitter size={20} />, link: "https://twitter.com/yourusername", color: "hover:text-[#1da1f2]" },
+    { name: "GITHUB", icon: <Github size={20} />, link: "https://github.com/yonasteshome", color: "hover:text-emerald-500" },
+    { name: "LINKEDIN", icon: <Linkedin size={20} />, link: "https://www.linkedin.com/in/yonas-teshome-341260378/", color: "hover:text-[#0077b5]" },
+    { name: "PORTFOLIO", icon: <Globe2 size={20} />, link: "https://portfolio-azure-seven2ik0kj7l26.vercel.app/", color: "hover:text-emerald-400" },
   ];
 
   return (
@@ -50,6 +50,7 @@ export default function Footer({ theme, isDarkMode }: { theme: any; isDarkMode: 
                   key={social.name} 
                   href={social.link} 
                   target="_blank"
+                  rel="noopener noreferrer"
                   className={`flex items-center justify-between p-5 rounded-2xl border-2 transition-all group
                     ${isDarkMode ? 'bg-white/5 border-white/5 hover:border-emerald-500/50' : 'bg-black/5 border-black/5 hover:border-emerald-500/30'}`}
                 >
@@ -68,19 +69,27 @@ export default function Footer({ theme, isDarkMode }: { theme: any; isDarkMode: 
               <div className="p-4 bg-emerald-500 rounded-[2rem] inline-block shadow-[0_0_30px_rgba(16,185,129,0.3)]">
                 <Terminal size={40} className="text-black" />
               </div>
-              <h2 className={`text-5xl md:text-6xl font-black tracking-tighter uppercase ${theme.text}`}>
-                YONAS<span className="text-emerald-500">.DEV</span>
+              <h2 className={`text-4xl md:text-5xl font-black tracking-tighter uppercase ${theme.text}`}>
+                YONAS<span className="text-emerald-500"> TESHOME</span>
               </h2>
+              <p className="font-mono text-[11px] font-bold text-emerald-500 tracking-[0.5em] uppercase">Full Stack Developer</p>
             </div>
 
-            <div className="space-y-4 w-full px-4">
-              <p className={`text-[10px] font-mono font-bold tracking-[0.4em] ${theme.subtext} uppercase`}>Direct_Communication_Line</p>
-              <a 
-                href="mailto:hello@yonas.dev" 
-                className={`text-2xl md:text-3xl font-black tracking-tighter border-b-4 border-emerald-500/20 hover:border-emerald-500 transition-all pb-2 block ${theme.text}`}
-              >
-                hello@yonas.dev
-              </a>
+            <div className="space-y-6 w-full px-4">
+              <div className="space-y-2">
+                <p className={`text-[10px] font-mono font-bold tracking-[0.4em] ${theme.subtext} uppercase`}>Direct_Communication_Line</p>
+                <a 
+                  href="mailto:yoyoni826@gmail.com" 
+                  className={`text-xl md:text-2xl font-black tracking-tighter border-b-4 border-emerald-500/20 hover:border-emerald-500 transition-all pb-2 inline-block ${theme.text}`}
+                >
+                  yoyoni826@gmail.com
+                </a>
+              </div>
+              
+              <div className={`flex items-center justify-center gap-3 font-mono text-xs font-bold ${theme.subtext}`}>
+                <Phone size={14} className="text-emerald-500" />
+                <span>+251 985 813 866</span>
+              </div>
             </div>
           </div>
 
@@ -94,18 +103,20 @@ export default function Footer({ theme, isDarkMode }: { theme: any; isDarkMode: 
                 <span className="font-mono text-[10px] font-bold text-zinc-500 uppercase tracking-widest">Availability</span>
                 <div className="flex items-center gap-2 text-emerald-500 font-mono text-[10px] font-black">
                   <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                  OPEN_TO_WORK
+                  OPEN_FOR_OFFERS
                 </div>
               </div>
               <div className="flex items-center justify-between">
-                <span className="font-mono text-[10px] font-bold text-zinc-500 uppercase tracking-widest">Security</span>
+                <span className="font-mono text-[10px] font-bold text-zinc-500 uppercase tracking-widest">Status</span>
                 <span className={`font-mono text-[10px] font-black ${theme.text} flex items-center gap-2`}>
-                  <Lock size={12} className="text-emerald-500" /> AES_256
+                  <Lock size={12} className="text-emerald-500" /> ENCRYPTED
                 </span>
               </div>
-              <div className="flex items-center justify-between pt-4 border-t border-white/5">
-                 <span className="font-mono text-[10px] font-bold text-zinc-500 uppercase tracking-widest">Location</span>
-                 <span className={`font-mono text-[10px] font-black ${theme.text}`}>ADDIS_ABABA // ET</span>
+              <div className="flex flex-col gap-2 pt-4 border-t border-white/5">
+                 <span className="font-mono text-[10px] font-bold text-zinc-500 uppercase tracking-widest">Location_Node</span>
+                 <span className={`font-mono text-[10px] font-black ${theme.text} flex items-center gap-2 uppercase`}>
+                   <MapPin size={12} className="text-emerald-500" /> Adama, Ethiopia
+                 </span>
               </div>
             </div>
           </div>
@@ -120,7 +131,7 @@ export default function Footer({ theme, isDarkMode }: { theme: any; isDarkMode: 
                V5.4.2_STABLE
             </span>
             <span className="hidden md:block opacity-20">/</span>
-            <span>© 2026_YONAS_REVELO</span>
+            <span>© 2026_YONAS_TESHOME</span>
           </div>
 
           <motion.button 
@@ -136,7 +147,7 @@ export default function Footer({ theme, isDarkMode }: { theme: any; isDarkMode: 
 
       {/* BACKGROUND WATERMARK */}
       <div className="absolute bottom-0 right-10 overflow-hidden pointer-events-none opacity-[0.02] select-none translate-y-1/3">
-        <span className={`text-[20rem] font-black tracking-tighter leading-none ${isDarkMode ? 'text-white' : 'text-black'}`}>
+        <span className={`text-[15rem] font-black tracking-tighter leading-none ${isDarkMode ? 'text-white' : 'text-black'}`}>
           YONAS
         </span>
       </div>
