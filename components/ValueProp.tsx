@@ -9,7 +9,6 @@ import {
   Globe2, 
   Layers, 
   MessageSquare, 
-  Code2,
   TrendingUp
 } from "lucide-react";
 
@@ -20,20 +19,20 @@ export default function ValueProp({ theme, isDarkMode }: { theme: any; isDarkMod
   const valuePillars = [
     {
       title: "FULL_STACK_VERSATILITY",
-      desc: "Bridging the gap between robust Node.js/MongoDB backends and fluid Next.js frontends. I ensure the entire system communicates perfectly.",
-      icon: <Layers size={22} />,
+      desc: "Bridging the gap between robust Node.js backends and fluid Next.js frontends. I ensure the entire system communicates perfectly.",
+      icon: <Layers size={18} />,
       metric: "99%_SYNC"
     },
     {
       title: "TRILINGUAL_COMMUNICATION",
-      desc: "Fluent in English, Amharic, and Afaan Oromo. I facilitate smooth collaboration in diverse, multi-cultural engineering environments.",
-      icon: <MessageSquare size={22} />,
+      desc: "Fluent in English, Amharic, and Afaan Oromo. I facilitate smooth collaboration in diverse, multi-cultural environments.",
+      icon: <MessageSquare size={18} />,
       metric: "GLOBAL_READY"
     },
     {
       title: "CLEAN_CODE_ARCHITECTURE",
       desc: "Passionate about building modular, maintainable, and user-focused applications that scale without technical debt.",
-      icon: <ShieldCheck size={22} />,
+      icon: <ShieldCheck size={18} />,
       metric: "ZERO_DEBT"
     }
   ];
@@ -41,88 +40,85 @@ export default function ValueProp({ theme, isDarkMode }: { theme: any; isDarkMod
   return (
     <section 
       ref={containerRef}
-      className={`relative py-48 px-6 md:px-12 lg:px-24 transition-colors duration-700 overflow-hidden ${isDarkMode ? "bg-[#050506]" : "bg-[#fcfcfd]"}`}
+      className={`relative py-24 px-6 md:px-12 lg:px-24 transition-colors duration-700 overflow-hidden ${isDarkMode ? "bg-[#050506]" : "bg-[#fcfcfd]"}`}
     >
       {/* Background HUD elements */}
       <div className="absolute top-0 left-1/4 w-[1px] h-full bg-emerald-500/5 hidden lg:block" />
       <div className="absolute top-0 right-1/4 w-[1px] h-full bg-emerald-500/5 hidden lg:block" />
 
-      <div className="max-w-[1600px] mx-auto relative">
+      <div className="max-w-[1400px] mx-auto relative">
         
-        {/* Section Header */}
-        <div className="mb-32 text-center lg:text-left">
+        {/* Section Header - Scaled Down */}
+        <div className="mb-20 text-center lg:text-left">
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            className="flex items-center justify-center lg:justify-start gap-4 text-emerald-500 font-mono text-sm tracking-[0.6em] font-bold uppercase mb-6"
+            className="flex items-center justify-center lg:justify-start gap-3 text-emerald-500 font-mono text-[10px] tracking-[0.4em] font-bold uppercase mb-4"
           >
-            <Cpu size={18} className="animate-spin-slow" />
+            <Cpu size={14} className="animate-spin-slow" />
             <span>ACQUISITION_VALUE_V2.0</span>
           </motion.div>
-          <h2 className={`text-6xl md:text-8xl lg:text-[10rem] font-black tracking-tighter ${theme.text} uppercase leading-[0.85]`}>
-            WHY WORK <span className="text-emerald-500 font-outline-2">WITH ME</span>
+          <h2 className={`text-5xl md:text-7xl font-black tracking-tighter ${theme.text} uppercase leading-none`}>
+            WHY WORK <span className="text-emerald-500">WITH ME</span>
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
           
-          {/* Main Narrative Block */}
+          {/* Main Narrative Block - Padding Tightened */}
           <motion.div 
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-6 space-y-12"
+            transition={{ duration: 0.8 }}
+            className="lg:col-span-6"
           >
-            <div className={`p-12 rounded-[3.5rem] border ${isDarkMode ? 'bg-white/[0.02] border-white/10' : 'bg-black/[0.02] border-black/5'} relative overflow-hidden group shadow-2xl`}>
-              {/* Decorative Scanline */}
-              <div className="absolute inset-0 bg-gradient-to-b from-emerald-500/5 to-transparent h-1/2 group-hover:translate-y-full transition-transform duration-[3s] linear infinite" />
-              
-              <div className="relative z-10 space-y-8">
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500/10 rounded-full border border-emerald-500/20 text-emerald-500 font-mono text-[10px] font-bold uppercase tracking-widest">
-                  <Zap size={12} className="fill-emerald-500" /> SYSTEM_UPGRADE_READY
+            <div className={`p-10 rounded-[2.5rem] border ${isDarkMode ? 'bg-white/[0.02] border-white/5' : 'bg-black/[0.02] border-black/5'} relative overflow-hidden group shadow-xl`}>
+              <div className="relative z-10 space-y-6">
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-emerald-500/10 rounded-full border border-emerald-500/20 text-emerald-500 font-mono text-[9px] font-bold uppercase tracking-widest">
+                  <Zap size={10} className="fill-emerald-500" /> SYSTEM_UPGRADE_READY
                 </div>
                 
-                <p className={`text-3xl md:text-5xl font-light leading-tight ${theme.text}`}>
-                  I bring a <span className="text-emerald-500 font-bold">solid foundation</span> in full-stack development, delivering <span className="italic">user-focused</span> applications through modular code and expert problem-solving.
+                <p className={`text-2xl md:text-3xl font-light leading-tight ${theme.text}`}>
+                  I deliver <span className="text-emerald-500 font-bold">solid full-stack solutions</span> using modular code and user-focused design to build scalable, high-impact applications.
                 </p>
 
-                <div className="pt-8 grid grid-cols-2 gap-8 border-t border-emerald-500/10">
-                   <div className="space-y-2">
-                      <div className="text-emerald-500 font-mono text-[10px] font-bold uppercase tracking-widest">LANGUAGES_SYNCED</div>
-                      <div className={`text-sm font-mono ${theme.subtext}`}>EN / AM / OR</div>
+                <div className="pt-6 grid grid-cols-2 gap-6 border-t border-white/5">
+                   <div className="space-y-1">
+                      <div className="text-emerald-500 font-mono text-[9px] font-bold uppercase tracking-widest">LANGUAGES_SYNCED</div>
+                      <div className={`text-xs font-mono ${theme.subtext}`}>EN / AM / OR</div>
                    </div>
-                   <div className="space-y-2">
-                      <div className="text-emerald-500 font-mono text-[10px] font-bold uppercase tracking-widest">LOCATION_BASE</div>
-                      <div className={`text-sm font-mono ${theme.subtext}`}>ADDIS_ABABA</div>
+                   <div className="space-y-1">
+                      <div className="text-emerald-500 font-mono text-[9px] font-bold uppercase tracking-widest">LOCATION_BASE</div>
+                      <div className={`text-xs font-mono ${theme.subtext}`}>ADDIS_ABABA</div>
                    </div>
                 </div>
               </div>
             </div>
           </motion.div>
 
-          {/* Value Pillars List */}
-          <div className="lg:col-span-6 space-y-8">
+          {/* Value Pillars List - Scaled Down */}
+          <div className="lg:col-span-6 space-y-6">
             {valuePillars.map((pillar, idx) => (
               <motion.div 
                 key={pillar.title}
-                initial={{ opacity: 0, x: 50 }}
+                initial={{ opacity: 0, x: 30 }}
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.6, delay: idx * 0.2 }}
-                className={`p-10 rounded-[2.5rem] border transition-all duration-500 group relative
+                transition={{ duration: 0.5, delay: idx * 0.15 }}
+                className={`p-6 rounded-[2rem] border transition-all duration-500 group relative
                   ${isDarkMode 
-                    ? 'bg-white/[0.01] border-white/5 hover:border-emerald-500/30' 
-                    : 'bg-black/[0.01] border-black/5 hover:border-emerald-500/20'}`}
+                    ? 'bg-white/[0.01] border-white/5 hover:border-emerald-500/20' 
+                    : 'bg-black/[0.01] border-black/5 hover:border-emerald-500/10'}`}
               >
-                <div className="flex items-start justify-between mb-6">
-                  <div className="p-4 bg-emerald-500/10 rounded-2xl text-emerald-500 group-hover:scale-110 transition-transform duration-500">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="p-3 bg-emerald-500/10 rounded-xl text-emerald-500 group-hover:scale-110 transition-transform duration-500">
                     {pillar.icon}
                   </div>
-                  <span className="font-mono text-[10px] text-zinc-500 tracking-[0.3em] font-bold">{pillar.metric}</span>
+                  <span className="font-mono text-[8px] text-zinc-500 tracking-[0.2em] font-bold uppercase">{pillar.metric}</span>
                 </div>
 
-                <div className="space-y-4">
-                  <h4 className="font-mono text-xs font-bold text-emerald-500 tracking-[0.2em]">{pillar.title}</h4>
-                  <p className={`text-xl ${theme.subtext} font-light leading-relaxed`}>
+                <div className="space-y-2">
+                  <h4 className="font-mono text-[10px] font-bold text-emerald-500 tracking-[0.1em]">{pillar.title}</h4>
+                  <p className={`text-base ${theme.subtext} font-light leading-relaxed`}>
                     {pillar.desc}
                   </p>
                 </div>
@@ -132,21 +128,21 @@ export default function ValueProp({ theme, isDarkMode }: { theme: any; isDarkMod
 
         </div>
 
-        {/* Action / Feedback Footer */}
+        {/* Action Footer - Scale Down */}
         <motion.div 
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
-          className="mt-40 pt-12 border-t border-emerald-500/10 flex flex-col md:flex-row justify-between items-center gap-8"
+          className="mt-24 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6"
         >
-           <div className="flex items-center gap-6 font-mono text-[10px] text-zinc-500 uppercase tracking-[0.4em]">
+           <div className="flex items-center gap-6 font-mono text-[9px] text-zinc-500 uppercase tracking-[0.3em]">
               <span className="flex items-center gap-2 text-emerald-500"><Globe2 size={12} /> GLOBAL_READY</span>
               <span className="flex items-center gap-2"><TrendingUp size={12} /> IMPACT_DRIVEN</span>
            </div>
            
-           <div className={`px-8 py-4 rounded-2xl font-mono text-[11px] font-black uppercase tracking-[0.3em] border
-             ${isDarkMode ? 'bg-emerald-500/10 border-emerald-500/20 text-emerald-500' : 'bg-emerald-500 text-black border-transparent'}`}>
+           <button className={`px-6 py-3 rounded-xl font-mono text-[10px] font-black uppercase tracking-[0.2em] border transition-all active:scale-95
+             ${isDarkMode ? 'bg-emerald-500/10 border-emerald-500/20 text-emerald-500 hover:bg-emerald-500/20' : 'bg-emerald-500 text-black border-transparent hover:bg-emerald-400'}`}>
              INITIATE_COLLABORATION_0x00FF
-           </div>
+           </button>
         </motion.div>
       </div>
     </section>

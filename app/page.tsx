@@ -70,9 +70,10 @@ export default function Home() {
   return (
     <main 
       className={`relative min-h-screen w-full ${theme.bg} transition-colors duration-700 
-      overflow-x-hidden overflow-y-auto no-scrollbar flex flex-col font-sans cursor-none select-none`}
+      overflow-x-hidden overflow-y-auto scroll-smooth no-scrollbar flex flex-col font-sans cursor-none select-none`}
     >
       
+      {/* 1. LOADING SCREEN */}
       <AnimatePresence>
         {isLoading && (
           <div className="fixed inset-0 z-[10000] pointer-events-none">
@@ -85,12 +86,14 @@ export default function Home() {
         )}
       </AnimatePresence>
 
+      {/* 2. CUSTOM CURSOR */}
       <motion.div
         className="fixed top-0 left-0 pointer-events-none z-[9999] flex items-center justify-center rounded-full mix-blend-difference bg-white w-8 h-8"
         style={{ x: cursorX, y: cursorY, translateX: "-50%", translateY: "-50%" }}
         animate={{ scale: isInteractive ? 2.5 : 1 }}
       />
 
+      {/* 3. NAVIGATION */}
       <Navbar 
         theme={theme} 
         isDarkMode={isDarkMode} 
@@ -98,8 +101,8 @@ export default function Home() {
         setIsInteractive={setIsInteractive} 
       />
 
-      {/* FIXED: Removed height constraints and overflow-hidden */}
-      <section className="relative w-full overflow-visible z-20">
+      {/* 4. HERO SECTION */}
+      <div className="relative w-full z-20">
         <Hero 
           theme={theme} 
           isDarkMode={isDarkMode} 
@@ -108,13 +111,24 @@ export default function Home() {
           imageX={imageX}
           imageY={imageY}
         />
-      </section>
+      </div>
 
+      {/* 5. ABOUT SECTION */}
       <About theme={theme} isDarkMode={isDarkMode} />
+
+      {/* 6. SKILLS SECTION */}
       <Skills theme={theme} isDarkMode={isDarkMode} />
+
+      {/* 7. PROJECTS SECTION */}
       <Projects theme={theme} isDarkMode={isDarkMode} />
+
+      {/* 8. EXPERIENCE SECTION */}
       <Experience theme={theme} isDarkMode={isDarkMode} />
+
+      {/* 9. VALUE PROPOSITION */}
       <ValueProp theme={theme} isDarkMode={isDarkMode} />
+
+      {/* 10. FOOTER */}
       <Footer theme={theme} isDarkMode={isDarkMode} />
 
     </main>

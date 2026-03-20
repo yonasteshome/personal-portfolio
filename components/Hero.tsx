@@ -34,15 +34,23 @@ const Hero = ({ theme, isDarkMode, isInteractive, setIsInteractive, imageX, imag
         <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none select-none z-10">
           <motion.h1 
             initial={slideFromLeft.initial}
-            animate={{ x: 0, opacity: 1, color: isInteractive ? (isDarkMode ? "#000" : "#fff") : (isDarkMode ? "#fff" : "#000") }}
+            animate={{ 
+              x: 0, opacity: 1,
+              color: isInteractive ? (isDarkMode ? "#000" : "#fff") : (isDarkMode ? "#fff" : "#000") 
+            }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             className="text-[11vw] leading-[0.8] font-black tracking-tighter uppercase"
           >
             Webdeveloper
           </motion.h1>
+
           <motion.h1 
             initial={slideFromLeft.initial}
-            animate={{ x: 0, opacity: 1, color: isInteractive ? (isDarkMode ? "#fff" : "#000") : (isDarkMode ? "#000" : "#fff"), "--stroke-color": isInteractive ? (isDarkMode ? "#fff" : "#000") : "#10b981" } as any}
+            animate={{ 
+              x: 0, opacity: 1,
+              color: isInteractive ? (isDarkMode ? "#fff" : "#000") : (isDarkMode ? "#000" : "#fff"),
+              "--stroke-color": isInteractive ? (isDarkMode ? "#fff" : "#000") : "#10b981"
+            } as any}
             transition={{ duration: 1.2, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="text-[11vw] leading-[0.8] font-black tracking-tighter uppercase"
             style={{ WebkitTextStroke: "1px var(--stroke-color)", backgroundClip: "text" }}
@@ -51,13 +59,16 @@ const Hero = ({ theme, isDarkMode, isInteractive, setIsInteractive, imageX, imag
           </motion.h1>
         </div>
 
-        {/* IMAGE */}
+        {/* IMAGE CONTAINER */}
         <div className="relative z-20 h-full flex items-center justify-center pointer-events-none">
           <motion.div style={{ x: imageX, y: imageY }} className="h-full flex items-center justify-center">
             <motion.img 
+              initial={{ scale: 0.85, opacity: 0 }}
+              animate={{ scale: 1.0, opacity: 1 }}
+              transition={{ duration: 1.5, delay: 0.4 }}
               src="/person.png" 
               alt="Yonas" 
-              className="h-[90%] w-auto object-contain grayscale transition-all duration-700"
+              className={`h-[90%] w-auto object-contain grayscale transition-all duration-700 ${isDarkMode ? 'brightness-[0.9] contrast-[1.1]' : 'brightness-[1.05] opacity-90'}`}
               style={{ maskImage: 'linear-gradient(to bottom, black 85%, transparent 100%)' }} 
             />
           </motion.div>
@@ -82,7 +93,7 @@ const Hero = ({ theme, isDarkMode, isInteractive, setIsInteractive, imageX, imag
         </div>
       </div>
 
-      {/* REFINED BUTTONS */}
+      {/* SMALLER CV BUTTONS */}
       <div className="w-full max-w-6xl px-8 pb-10 flex flex-col items-center relative z-50 mt-4">
         <p className={`text-sm ${theme.subtext} mb-6 font-bold ${theme.codeFont}`}>
           <span className="opacity-60">&lt;located /&gt;</span> Addis Ababa, Ethiopia
@@ -91,16 +102,16 @@ const Hero = ({ theme, isDarkMode, isInteractive, setIsInteractive, imageX, imag
           <button 
             onMouseEnter={() => setIsInteractive(true)} 
             onMouseLeave={() => setIsInteractive(false)} 
-            className={`flex items-center gap-2 px-8 py-4 rounded-lg font-black text-xs uppercase tracking-[0.2em] active:scale-95 transition-all shadow-xl ${isDarkMode ? 'bg-[#10b981] text-black hover:bg-emerald-400' : 'bg-slate-900 text-white hover:bg-black'}`}
+            className={`flex items-center gap-2 px-8 py-3 rounded-lg font-black text-[10px] uppercase tracking-[0.2em] active:scale-95 transition-all shadow-xl ${isDarkMode ? 'bg-[#10b981] text-black hover:bg-emerald-400' : 'bg-slate-900 text-white hover:bg-black'}`}
           >
-            <Eye size={16} /> View CV
+            <Eye size={14} /> View CV
           </button>
           <button 
             onMouseEnter={() => setIsInteractive(true)} 
             onMouseLeave={() => setIsInteractive(false)} 
-            className={`flex items-center gap-2 px-8 py-4 rounded-lg font-black text-xs uppercase tracking-[0.2em] active:scale-95 transition-all border-2 ${isDarkMode ? 'border-zinc-700 text-zinc-300 hover:border-white hover:text-white' : 'border-slate-300 text-slate-700 hover:border-black hover:text-black'}`}
+            className={`flex items-center gap-2 px-8 py-3 rounded-lg font-black text-[10px] uppercase tracking-[0.2em] active:scale-95 transition-all border-2 ${isDarkMode ? 'border-zinc-700 text-zinc-300 hover:border-white hover:text-white' : 'border-slate-300 text-slate-700 hover:border-black hover:text-black'}`}
           >
-            <Download size={16} /> Download CV
+            <Download size={14} /> Download CV
           </button>
         </div>
       </div>

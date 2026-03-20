@@ -40,7 +40,8 @@ export default function Skills({ theme, isDarkMode }: { theme: any; isDarkMode: 
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { amount: 0.4 });
   
-  const radius = 320;
+  // SCALE REDUCTION: Reduced radius from 320 to 240
+  const radius = 240; 
   const totalItems = skillData.length;
   const stepAngle = 360 / totalItems;
 
@@ -66,23 +67,20 @@ export default function Skills({ theme, isDarkMode }: { theme: any; isDarkMode: 
     playNote(1174, 0.14, 0.15); 
   }, []);
 
-  // 1. SOUND TRIGGER: On Navigation
   useEffect(() => {
     if (isInView) playTargetSound();
   }, [isInView, playTargetSound]);
 
-  // 2. INFINITE FORWARD AUTO-ROTATION
   useEffect(() => {
     if (isPaused || !isInView) return;
     const interval = setInterval(() => {
       setRotation(prev => prev + stepAngle);
       setActiveIndex(prev => (prev + 1) % totalItems);
       playTargetSound();
-    }, 1500); // MODIFIED: Set to 1.5 seconds
+    }, 1500);
     return () => clearInterval(interval);
   }, [isPaused, totalItems, isInView, stepAngle, playTargetSound]);
 
-  // shortest forward path for manual clicks
   const handleManualNav = (index: number) => {
     const diff = (index - activeIndex + totalItems) % totalItems;
     setRotation(prev => prev + (diff * stepAngle));
@@ -93,28 +91,29 @@ export default function Skills({ theme, isDarkMode }: { theme: any; isDarkMode: 
   return (
     <section 
       ref={sectionRef}
-      className={`relative min-h-screen flex items-center justify-center py-24 px-12 md:px-32 overflow-hidden transition-colors duration-700 ${isDarkMode ? "bg-[#050506]" : "bg-[#fcfcfd]"}`}
+      className={`relative min-h-screen flex items-center justify-center py-20 px-8 md:px-24 overflow-hidden transition-colors duration-700 ${isDarkMode ? "bg-[#050506]" : "bg-[#fcfcfd]"}`}
     >
-      <div className="max-w-[1700px] w-full grid grid-cols-1 lg:grid-cols-2 gap-40 items-center relative z-10">
+      {/* Container max-width reduced for tighter feel */}
+      <div className="max-w-[1400px] w-full grid grid-cols-1 lg:grid-cols-2 gap-20 items-center relative z-10">
         
+        {/* WHEEL SECTION - Height reduced */}
         <div 
-          className="relative h-[800px] flex items-center justify-center order-2 lg:order-1"
+          className="relative h-[600px] flex items-center justify-center order-2 lg:order-1"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
-          {/* Background Scanner Pulse */}
           <div className="absolute inset-0 flex items-center justify-center">
              <motion.div 
-               animate={{ scale: [1, 1.5], opacity: [0.1, 0] }}
+               animate={{ scale: [1, 1.3], opacity: [0.1, 0] }}
                transition={{ duration: 4, repeat: Infinity, ease: "easeOut" }}
-               className="absolute w-[500px] h-[500px] border border-emerald-500/30 rounded-full"
+               className="absolute w-[400px] h-[400px] border border-emerald-500/30 rounded-full"
              />
           </div>
           
           <motion.div 
             className="relative w-full h-full flex items-center justify-center"
             animate={{ rotate: -rotation }} 
-            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }} // MODIFIED: Faster transition (0.3s) for 1.5s interval
+            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
           >
             {skillData.map((skill, i) => {
               const angle = (i * stepAngle) * (Math.PI / 180);
@@ -126,19 +125,20 @@ export default function Skills({ theme, isDarkMode }: { theme: any; isDarkMode: 
                 <motion.button
                   key={skill.name}
                   onClick={() => handleManualNav(i)}
-                  className="absolute p-4"
+                  className="absolute p-2"
                   style={{ x, y, rotate: rotation }} 
                 >
                     <motion.div 
-                        animate={isActive ? { scale: [1, 1.1, 1] } : {}}
+                        animate={isActive ? { scale: [1, 1.05, 1] } : {}}
                         transition={{ duration: 2, repeat: Infinity }}
-                        className={`p-6 rounded-xl border-2 transition-all duration-500 ${
+                        className={`p-4 rounded-lg border transition-all duration-500 ${
                             isActive 
-                            ? "border-emerald-500 bg-emerald-500/20 shadow-[0_0_50px_rgba(16,185,129,0.5)] opacity-100" 
+                            ? "border-emerald-500 bg-emerald-500/20 shadow-[0_0_30px_rgba(16,185,129,0.4)] opacity-100" 
                             : "border-white/5 bg-white/[0.01] opacity-20 hover:opacity-50"
                         }`}
                     >
-                        <span className={`text-5xl transition-colors duration-300 ${isActive ? "text-emerald-400" : "text-zinc-500"}`}>
+                        {/* Icon size reduced from 5xl to 3xl */}
+                        <span className={`text-3xl transition-colors duration-300 ${isActive ? "text-emerald-400" : "text-zinc-500"}`}>
                             {skill.icon}
                         </span>
                     </motion.div>
@@ -147,21 +147,24 @@ export default function Skills({ theme, isDarkMode }: { theme: any; isDarkMode: 
             })}
           </motion.div>
 
+          {/* Center Element Scale Down */}
           <div className="absolute flex flex-col items-center justify-center pointer-events-none">
-            <div className="w-56 h-56 border-2 border-dashed border-emerald-500/10 rounded-full animate-[spin_30s_linear_infinite]" />
+            <div className="w-40 h-40 border border-dashed border-emerald-500/10 rounded-full animate-[spin_30s_linear_infinite]" />
             <div className="absolute">
-               <Crosshair className="text-emerald-500/30" size={80} strokeWidth={1} />
+               <Crosshair className="text-emerald-500/30" size={50} strokeWidth={1} />
             </div>
           </div>
         </div>
 
-        <div className="flex flex-col space-y-10 order-1 lg:order-2">
-          <div className="space-y-4">
-            <div className="flex items-center gap-3 text-emerald-500 font-mono text-xs tracking-[0.5em] font-bold uppercase">
-              <div className="w-2 h-2 bg-emerald-500 animate-ping" />
+        {/* CONTENT SECTION */}
+        <div className="flex flex-col space-y-8 order-1 lg:order-2">
+          <div className="space-y-3">
+            <div className="flex items-center gap-2 text-emerald-500 font-mono text-[10px] tracking-[0.4em] font-bold uppercase">
+              <div className="w-1.5 h-1.5 bg-emerald-500 animate-ping" />
               <span>Target_Locked</span>
             </div>
-            <h2 className={`text-7xl md:text-9xl font-black tracking-tighter ${theme.text} uppercase leading-[0.85]`}>
+            {/* Reduced from 9xl to 7xl */}
+            <h2 className={`text-6xl md:text-7xl font-black tracking-tighter ${theme.text} uppercase leading-[0.9]`}>
               SKILLS <br/> <span className="text-emerald-500">ON</span> TECH
             </h2>
           </div>
@@ -170,51 +173,53 @@ export default function Skills({ theme, isDarkMode }: { theme: any; isDarkMode: 
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeIndex}
-                initial={{ opacity: 0, x: 30 }}
+                initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -30 }}
-                transition={{ duration: 0.5 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.4 }}
                 className="flex-1"
               >
-                <div className="flex items-center gap-6 mb-8">
-                    <div className="p-5 bg-emerald-500/10 border-2 border-emerald-500/30 text-5xl text-emerald-400 rounded-lg shadow-[0_0_20px_rgba(16,185,129,0.2)]">
+                <div className="flex items-center gap-4 mb-6">
+                    {/* Reduced size and padding */}
+                    <div className="p-3 bg-emerald-500/10 border border-emerald-500/30 text-3xl text-emerald-400 rounded shadow-[0_0_15px_rgba(16,185,129,0.15)]">
                         {skillData[activeIndex].icon}
                     </div>
                     <div>
-                        <div className="flex items-center gap-2 mb-1">
-                            <Shield size={12} className="text-emerald-500" />
-                            <span className="font-mono text-[10px] text-emerald-500 font-bold uppercase tracking-[0.3em]">
+                        <div className="flex items-center gap-2 mb-0.5">
+                            <Shield size={10} className="text-emerald-500" />
+                            <span className="font-mono text-[8px] text-emerald-500 font-bold uppercase tracking-[0.3em]">
                                 Verified_{skillData[activeIndex].category}
                             </span>
                         </div>
-                        <h3 className={`text-5xl md:text-7xl font-black tracking-tight ${theme.text} uppercase`}>
+                        <h3 className={`text-4xl md:text-5xl font-black tracking-tight ${theme.text} uppercase`}>
                             {skillData[activeIndex].name}
                         </h3>
                     </div>
                 </div>
                 
-                <p className={`text-2xl leading-relaxed font-medium ${theme.subtext} mb-12 max-w-xl border-l-4 border-emerald-500/40 pl-8`}>
+                {/* Font size reduced to text-lg */}
+                <p className={`text-lg leading-relaxed font-medium ${theme.subtext} mb-8 max-w-md border-l-2 border-emerald-500/40 pl-6`}>
                     {skillData[activeIndex].desc}
                 </p>
 
-                <div className="flex flex-wrap gap-4">
-                    <div className="flex items-center gap-3 py-4 px-6 border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] transition-colors">
-                        <Terminal size={18} className="text-emerald-500" />
-                        <span className="font-mono text-xs text-zinc-400 uppercase tracking-widest">Protocol: Active</span>
+                <div className="flex flex-wrap gap-3">
+                    <div className="flex items-center gap-2 py-2 px-4 border border-white/10 bg-white/[0.02] transition-colors">
+                        <Terminal size={14} className="text-emerald-500" />
+                        <span className="font-mono text-[10px] text-zinc-400 uppercase tracking-widest">Protocol: Active</span>
                     </div>
-                    <div className="flex items-center gap-3 py-4 px-6 border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] transition-colors">
-                        <Zap size={18} className="text-emerald-500" />
-                        <span className="font-mono text-xs text-zinc-400 uppercase tracking-widest">Efficiency: 100%</span>
+                    <div className="flex items-center gap-2 py-2 px-4 border border-white/10 bg-white/[0.02] transition-colors">
+                        <Zap size={14} className="text-emerald-500" />
+                        <span className="font-mono text-[10px] text-zinc-400 uppercase tracking-widest">Efficiency: 100%</span>
                     </div>
                 </div>
               </motion.div>
             </AnimatePresence>
           </div>
 
-          <div className="pt-10 border-t border-white/5 flex justify-between items-center font-mono text-[10px] text-zinc-600 uppercase tracking-[0.5em]">
-              <div className="flex gap-10">
-                  <span className="flex items-center gap-2">
-                    <ChevronRight size={10} className="text-emerald-500" />
+          <div className="pt-6 border-t border-white/5 flex justify-between items-center font-mono text-[9px] text-zinc-600 uppercase tracking-[0.4em]">
+              <div className="flex gap-6">
+                  <span className="flex items-center gap-1.5">
+                    <ChevronRight size={8} className="text-emerald-500" />
                     STATUS: <span className="text-emerald-500">NOMINAL</span>
                   </span>
                   <span>NODE: <span className="text-emerald-500">0{activeIndex + 1}</span></span>
