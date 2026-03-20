@@ -7,10 +7,9 @@ import {
   Cpu, 
   Zap, 
   ShieldCheck, 
-  Activity, 
   BookOpen, 
   User,
-  Command
+  Activity
 } from "lucide-react";
 
 export default function About({ theme, isDarkMode }: { theme: any; isDarkMode: boolean }) {
@@ -30,14 +29,13 @@ export default function About({ theme, isDarkMode }: { theme: any; isDarkMode: b
       opacity: 1, 
       transition: { 
         duration: 0.8, 
-        // FIXED: Added 'as const' to satisfy TypeScript tuple requirements
         ease: [0.16, 1, 0.3, 1] as const 
       } 
     }
   };
 
   return (
-    <section id="about" className={`relative py-32 px-6 md:px-12 lg:px-24 overflow-hidden transition-colors duration-700 ${isDarkMode ? "bg-[#050505]" : "bg-[#fcfcfd]"}`}>
+    <section id="about" className={`relative z-10 py-32 px-6 md:px-12 lg:px-24 overflow-hidden transition-colors duration-700 ${isDarkMode ? "bg-[#050505]" : "bg-[#fcfcfd]"}`}>
       
       {/* Background Ambience */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-500/5 blur-[120px] rounded-full pointer-events-none" />
@@ -89,15 +87,12 @@ export default function About({ theme, isDarkMode }: { theme: any; isDarkMode: b
                 from the ground up.
               </h3>
               <p className={`text-lg md:text-xl font-light leading-relaxed max-w-2xl ${theme.subtext}`}>
-                I am a <span className={theme.text}>Full-Stack Developer</span> and <span className={theme.text}>QA Tester</span> currently sharpening my skills at <span className="text-emerald-500 font-medium text-xl">ASTU</span>. My approach combines the creativity of a developer with the critical, detailed eye of a tester.
-              </p>
-              <p className={`text-lg md:text-xl font-light leading-relaxed max-w-2xl ${theme.subtext}`}>
-                Whether it's architecting high-concurrency systems or ensuring pixel-perfect responsiveness, I focus on building software that is not just functional, but <span className="italic text-emerald-500">resilient</span>.
+                I am a <span className={theme.text}>Full-Stack Developer</span> and <span className={theme.text}>QA Tester</span> currently sharpening my skills at <span className="text-emerald-500 font-medium text-xl">ASTU</span>. My approach combines creativity with a detailed eye.
               </p>
             </div>
           </motion.div>
 
-          {/* High Contrast Mindset Card */}
+          {/* Mindset Card */}
           <motion.div 
             variants={itemVariants}
             className={`md:col-span-4 p-8 rounded-[2.5rem] border-2 flex flex-col justify-between group
@@ -110,47 +105,9 @@ export default function About({ theme, isDarkMode }: { theme: any; isDarkMode: b
               </h4>
             </div>
             <p className="font-mono text-[11px] leading-relaxed opacity-80 uppercase tracking-wider">
-              "Clean code is not a goal; it's a requirement. If it isn't testable, it isn't finished."
+              "Clean code is not a goal; it's a requirement."
             </p>
           </motion.div>
-
-          {/* Three-Column Capabilities */}
-          {[
-            { 
-              title: "ACADEMIC_BASE", 
-              desc: "Pursuing excellence at Adama Science and Technology University, blending theoretical CS with real-world builds.", 
-              icon: <BookOpen size={24} />, 
-              span: "md:col-span-4" 
-            },
-            { 
-              title: "QA_PRECISION", 
-              desc: "Expertise in behavioral data architecture and rigorous testing strategies to ensure zero-debt deployments.", 
-              icon: <ShieldCheck size={24} />, 
-              span: "md:col-span-4" 
-            },
-            { 
-              title: "ADAPTIVE_STACK", 
-              desc: "Fast-moving learner focused on Next.js, Framer Motion, and scalable Node.js/Django backends.", 
-              icon: <Zap size={24} />, 
-              span: "md:col-span-4" 
-            }
-          ].map((box) => (
-            <motion.div 
-              key={box.title}
-              variants={itemVariants}
-              whileHover={{ y: -5 }}
-              className={`${box.span} p-8 rounded-[2.5rem] border-2 group hover:border-emerald-500/50 transition-all duration-500
-                ${isDarkMode ? 'bg-zinc-900/20 border-white/5' : 'bg-white border-black/5 shadow-md'}`}
-            >
-              <div className="p-4 bg-emerald-500/10 rounded-2xl text-emerald-500 w-fit mb-6 group-hover:bg-emerald-500 group-hover:text-black transition-all">
-                {box.icon}
-              </div>
-              <h4 className="font-mono text-xs font-black text-emerald-500 tracking-[0.2em] mb-3">{box.title}</h4>
-              <p className={`text-sm font-medium leading-relaxed ${theme.subtext}`}>
-                {box.desc}
-              </p>
-            </motion.div>
-          ))}
         </motion.div>
 
         {/* Status Bar */}
@@ -161,7 +118,7 @@ export default function About({ theme, isDarkMode }: { theme: any; isDarkMode: b
           className="mt-20 flex flex-col md:flex-row items-center justify-between gap-8 py-10 border-t border-emerald-500/10"
         >
            <div className="flex items-center gap-4 font-mono text-[10px] font-black text-zinc-500 uppercase tracking-[0.3em]">
-              <Activity size={14} className="text-emerald-500" /> ReveloOne Behavioral Strategy // IN_PROGRESS
+              <Activity size={14} className="text-emerald-500" /> ReveloOne Strategy // IN_PROGRESS
            </div>
            <div className={`font-mono text-[10px] font-black uppercase tracking-[0.3em] ${theme.text}`}>
               Yonas Teshome // Adama, Ethiopia

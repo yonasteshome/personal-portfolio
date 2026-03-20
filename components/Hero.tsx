@@ -19,20 +19,19 @@ const Hero = ({ theme, isDarkMode, isInteractive, setIsInteractive, imageX, imag
   };
 
   return (
-    /* FIXED: Added overflow-x-hidden to prevent the horizontal scrollbar */
-    <div className="relative h-full flex flex-col items-center justify-center px-4 w-full pt-38 overflow-x-hidden">
+    /* FIXED: Added 'isolate' and 'z-50' to the main wrapper */
+    <div className="relative h-screen flex flex-col items-center justify-center px-4 w-full pt-24 overflow-visible z-50 isolate">
       
       {/* Welcome Text Section */}
-      <div className="flex items-center gap-4 mb-[-5px] relative z-20">
-        <Globe size={24} className="animate-pulse text-[#10b981]" />
-        <p className={`text-xl md:text-3xl font-bold ${theme.text} tracking-tight ${theme.codeFont}`}>
+      <div className="flex items-center gap-3 mb-1 relative z-20">
+        <Globe size={18} className="animate-pulse text-[#10b981]" />
+        <p className={`text-base md:text-xl font-bold ${theme.text} tracking-tight ${theme.codeFont}`}>
           // Welcome. I'm Yonas, a freelancer
         </p>
       </div>
 
-      {/* FIXED: Changed max-w-[95vw] to max-w-full and added overflow-hidden */}
       <div 
-        className="relative w-full max-w-full flex justify-center items-center flex-1 max-h-[60vh] overflow-hidden"
+        className="relative w-full max-w-full flex justify-center items-center flex-1 max-h-[60vh]"
         onMouseEnter={() => setIsInteractive(true)}
         onMouseLeave={() => setIsInteractive(false)}
       >
@@ -45,7 +44,7 @@ const Hero = ({ theme, isDarkMode, isInteractive, setIsInteractive, imageX, imag
               color: isInteractive ? (isDarkMode ? "#000" : "#fff") : (isDarkMode ? "#fff" : "#000") 
             }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="text-[11vw] leading-[0.7] font-black tracking-tighter uppercase"
+            className="text-[11vw] leading-[0.8] font-black tracking-tighter uppercase"
           >
             Webdeveloper
           </motion.h1>
@@ -58,7 +57,7 @@ const Hero = ({ theme, isDarkMode, isInteractive, setIsInteractive, imageX, imag
               "--stroke-color": isInteractive ? (isDarkMode ? "#fff" : "#000") : "#10b981"
             } as any}
             transition={{ duration: 1.2, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-[11vw] leading-[0.7] font-black tracking-tighter uppercase"
+            className="text-[11vw] leading-[0.8] font-black tracking-tighter uppercase"
             style={{ WebkitTextStroke: "1px var(--stroke-color)", backgroundClip: "text" }}
           >
             & QA Tester
@@ -66,33 +65,32 @@ const Hero = ({ theme, isDarkMode, isInteractive, setIsInteractive, imageX, imag
         </div>
 
         {/* IMAGE CONTAINER */}
-        <div className="relative z-20 h-full flex items-center justify-center">
-          <motion.div style={{ x: imageX, y: imageY }} className="h-full flex items-center justify-center pointer-events-none">
+        <div className="relative z-20 h-full flex items-center justify-center pointer-events-none">
+          <motion.div style={{ x: imageX, y: imageY }} className="h-full flex items-center justify-center">
             <motion.img 
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
+              initial={{ scale: 0.85, opacity: 0 }}
+              animate={{ scale: 1.0, opacity: 1 }}
               transition={{ duration: 1.5, delay: 0.4 }}
               src="/person.png" 
               alt="Yonas" 
-              draggable="false"
-              className={`h-[95%] w-auto object-contain grayscale transition-all duration-700 ${isDarkMode ? 'brightness-[0.8] contrast-[1.2]' : 'brightness-[1.05] opacity-90'}`}
-              style={{ maskImage: 'linear-gradient(to bottom, black 70%, transparent 100%)' }} 
+              className={`h-[90%] w-auto object-contain grayscale transition-all duration-700 ${isDarkMode ? 'brightness-[0.9] contrast-[1.1]' : 'brightness-[1.05] opacity-90'}`}
+              style={{ maskImage: 'linear-gradient(to bottom, black 85% , transparent 100%)' }} 
             />
           </motion.div>
         </div>
 
-        {/* FOREGROUND TEXT (Outline) */}
+        {/* FOREGROUND TEXT */}
         <div className="absolute inset-0 flex flex-col items-center justify-center select-none z-30 pointer-events-none">
           <motion.h1 
             animate={{ "--stroke-f": isInteractive ? (isDarkMode ? "#fff" : "#000") : (isDarkMode ? "transparent" : "#fff") } as any}
-            className="text-[11vw] leading-[0.7] font-black tracking-tighter text-transparent uppercase" 
+            className="text-[11vw] leading-[0.8] font-black tracking-tighter text-transparent uppercase" 
             style={{ WebkitTextStroke: "1.5px var(--stroke-f)" }}
           >
             Webdeveloper
           </motion.h1>
           <motion.h1 
             animate={{ "--stroke-b": isInteractive ? (isDarkMode ? "transparent" : "#fff") : (isDarkMode ? "#fff" : "#000") } as any}
-            className="text-[11vw] leading-[0.7] font-black tracking-tighter text-transparent uppercase"
+            className="text-[11vw] leading-[0.8] font-black tracking-tighter text-transparent uppercase"
             style={{ WebkitTextStroke: "1px var(--stroke-b)" }}
           >
             & QA Tester
@@ -100,16 +98,24 @@ const Hero = ({ theme, isDarkMode, isInteractive, setIsInteractive, imageX, imag
         </div>
       </div>
 
-      {/* FOOTER BUTTONS */}
-      <div className="w-full max-w-6xl px-8 pb-10 flex flex-col items-center relative z-40 mt-[-10px]">
-        <p className={`text-xl ${theme.subtext} mb-8 font-bold ${theme.codeFont}`}>
-          &lt;located /&gt; Addis Ababa, Ethiopia
+      {/* FOOTER BUTTONS - Higher Z-Index and Ensure Visibility */}
+      <div className="w-full max-w-6xl px-8 pb-10 flex flex-col items-center relative z-[60] mt-[-20px]">
+        <p className={`text-sm ${theme.subtext} mb-6 font-bold ${theme.codeFont} relative z-[60]`}>
+          <span className="opacity-60">&lt;located /&gt;</span> Addis Ababa, Ethiopia
         </p>
-        <div className="flex gap-6">
-          <button onMouseEnter={() => setIsInteractive(true)} onMouseLeave={() => setIsInteractive(false)} className={`px-12 py-6 rounded-lg font-black text-sm uppercase tracking-[0.2em] active:scale-95 transition-all shadow-2xl ${isDarkMode ? 'bg-[#10b981] text-black hover:bg-emerald-400' : 'bg-slate-900 text-white hover:bg-black'}`}>
+        <div className="flex gap-4 relative z-[60]">
+          <button 
+            onMouseEnter={() => setIsInteractive(true)} 
+            onMouseLeave={() => setIsInteractive(false)} 
+            className={`px-12 py-6 rounded-lg font-black text-sm uppercase tracking-[0.2em] active:scale-95 transition-all shadow-2xl relative z-[70] ${isDarkMode ? 'bg-[#10b981] text-black hover:bg-emerald-400' : 'bg-slate-900 text-white hover:bg-black'}`}
+          >
             Hire as Developer
           </button>
-          <button onMouseEnter={() => setIsInteractive(true)} onMouseLeave={() => setIsInteractive(false)} className={`px-12 py-6 rounded-lg font-black text-sm uppercase tracking-[0.2em] active:scale-95 transition-all border-2 ${isDarkMode ? 'border-zinc-700 text-zinc-300 hover:border-white hover:text-white' : 'border-slate-300 text-slate-700 hover:border-black hover:text-black'}`}>
+          <button 
+            onMouseEnter={() => setIsInteractive(true)} 
+            onMouseLeave={() => setIsInteractive(false)} 
+            className={`px-12 py-6 rounded-lg font-black text-sm uppercase tracking-[0.2em] active:scale-95 transition-all border-2 relative z-[70] ${isDarkMode ? 'border-zinc-700 text-zinc-300 hover:border-white hover:text-white' : 'border-slate-300 text-slate-700 hover:border-black hover:text-black'}`}
+          >
             Hire as QA Tester
           </button>
         </div>
