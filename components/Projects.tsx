@@ -23,7 +23,7 @@ const projectData: Project[] = [
     desc: "Centralised fleet control system with interactive availability calendars and automated rental agreements. Features a custom-built scheduling engine for seamless vehicle management.",
     tech: ["TypeScript", "PostgreSQL", "Prisma", "Framer"],
     github: "https://github.com/yonasteshome/vehicle-rental-system",
-    demo: "https://drive-rentals.net",
+    demo: "https://vehicle-rental-system-wrjt.vercel.app/landing",
     icon: <Car size={24} />,
     image: "/projects/car-rental.png",
     video: "/rental.mp4"
