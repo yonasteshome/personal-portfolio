@@ -11,6 +11,7 @@ import ValueProp from '../components/ValueProp';
 import Footer from '../components/Footer';
 
 export default function Home() {
+  // 1. Start with a state that doesn't trigger a "light" render first
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isInteractive, setIsInteractive] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -19,22 +20,41 @@ export default function Home() {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   
+  // 2. Initial Theme Detection
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "dark") {
-      setIsDarkMode(true);
-    } else if (savedTheme === "light") {
-      setIsDarkMode(false);
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    
+    // Logic: use saved preference, otherwise fallback to system setting
+    const shouldBeDark = savedTheme === "dark" || (!savedTheme && prefersDark);
+    
+    setIsDarkMode(shouldBeDark);
+
+    // Apply background color to the root immediately to prevent white flashes
+    if (shouldBeDark) {
+      document.documentElement.classList.add('dark');
+      document.documentElement.style.backgroundColor = "#0a0a0b";
     } else {
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      setIsDarkMode(prefersDark);
+      document.documentElement.classList.remove('dark');
+      document.documentElement.style.backgroundColor = "#fcfcfd";
     }
+
     setMounted(true);
   }, []);
 
+  // 3. Sync Theme Changes
   useEffect(() => {
     if (mounted) {
       localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+      
+      // Keep the root element in sync with the state
+      if (isDarkMode) {
+        document.documentElement.classList.add('dark');
+        document.documentElement.style.backgroundColor = "#0a0a0b";
+      } else {
+        document.documentElement.classList.remove('dark');
+        document.documentElement.style.backgroundColor = "#fcfcfd";
+      }
     }
   }, [isDarkMode, mounted]);
 
@@ -65,7 +85,12 @@ export default function Home() {
     };
   }, [mouseX, mouseY]);
 
-  if (!mounted) return null;
+  // 4. Hydration Guard: 
+  // Returning a simple background matching your dark theme prevents the 
+  // screen from flashing white while React is loading components.
+  if (!mounted) {
+    return <div className="min-h-screen bg-[#0a0a0b]" />;
+  }
 
   return (
     <main 

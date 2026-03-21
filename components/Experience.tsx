@@ -31,7 +31,7 @@ const experiences: ExperienceItem[] = [
     feedback: "Exceptional backend logic & scalability focus."
   },
   {
-    company: "EagleLion Technologies",
+    company: "c",
     role: "Front-End Engineer",
     period: "2024 - PRESENT",
     location: "Addis Ababa",
